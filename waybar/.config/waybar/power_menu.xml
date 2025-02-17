@@ -1,0 +1,8 @@
+
+<menu>
+  <item label="Shutdown" action="shutdown" icon="system-shutdown"/>
+  <item label="Reboot" action="reboot" icon="system-reboot"/>
+  <item label="Suspend" action="systemctl suspend" icon="system-suspend"/>
+  <item label="Hibernate" action="systemctl hibernate" icon="system-hibernate"/>
+  <item label="Lock" action="swaylock" icon="system-lock-screen"/>
+</menu>
