@@ -4,6 +4,7 @@
 
 local wezterm = require("wezterm")
 local pad = 10
+local line_height = 1.2
 
 local font_normal = {
 	family = "FiraCode Nerd Font",
@@ -52,6 +53,7 @@ return {
 			font = load_font(font_italic),
 		},
 	},
+	line_height = line_height,
 
 	-- Colors
 	color_scheme = "night_owl",

@@ -88,8 +88,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "  On",
-      "deactivated": "  Off",
+      "activated": " ",
+      "deactivated": " ",
     },
   },
   "tray": {
@@ -168,13 +168,13 @@
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-      "headphone": "",
+      "headphone": " ",
       "hands-free": "",
       "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""],
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [" ", " ", " "],
     },
     "on-click": "pavucontrol",
   },
@@ -191,16 +191,6 @@
     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
   },
   "custom/power": {
-    // "format": "⏻ ",
-    // "tooltip": false,
-    // "menu": "on-click",
-    // "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-    // "menu-actions": {
-    //   // "shutdown": "shutdown",
-    //   // "reboot": "reboot",
-    //   // "suspend": "systemctl suspend",
-    //   // "hibernate": "systemctl hibernate",
-    // },
     "format": "⏻ ",
     "tooltip": false,
     "on-click": "/bin/bash -c ~/.config/waybar/scripts/power_menu.sh",

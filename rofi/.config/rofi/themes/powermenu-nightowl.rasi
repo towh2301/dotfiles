@@ -1,0 +1,82 @@
+configuration {
+    font: "FiraCode Nerd Font 12";
+    show-icons: true;
+}
+
+* {
+    background: #011627;   // Night Owl dark background
+    foreground: #d6deeb;   // Text color
+    spacing: 4px;
+    text-color:                  #d6deeb;
+    background-color:            #011627;
+    lightbg:                     #1d3b53;
+    red:                         #ef5350;
+    orange:                      #f78c6c; 
+    blue:                        #82aaff;
+    pywal-color:                 #c792ea;
+    black-foreground:            #000000;
+}
+
+window {
+    border: 1px;
+    border-color: @orange; 
+    background-color: @background;
+    border-radius: 10px;
+    padding: 10px;
+    width: 20%;
+    height: 22%;
+    transparency: "real";
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+    background-color:               #00000000;
+    border-radius:                  0% 0% 0% 0%;
+    children:                       [ inputbar, listview ];
+    spacing:                        1%;
+    padding:                        1% 1% 1% 1%;
+}
+
+prompt{
+    enabled: true;
+    background-color: @pywal-color;
+    text-color: @black-foreground;
+    padding: 0.25% 0.75% 0.25% 0.75%;
+    border-radius: 5%;
+    font: "FiraCode Nerd Font 14";
+    spacing: 5px;
+}
+
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    enabled: false;
+}
+
+listview {
+    background-color: @background;
+    spacing: 4px;
+}
+
+element {
+    background-color: transparent;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+element selected {
+    text-color: @pywal-color;
+    background-color: #1e2d3d;
+    border-radius: 6px;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 20px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: @foreground;
+}
+

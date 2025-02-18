@@ -59,6 +59,7 @@ button:hover {
 #network,
 #pulseaudio,
 #tray,
+#power,
 #mpd {
   padding: 4px 10px;
   margin: 4px;
@@ -151,4 +152,8 @@ button:hover {
 
 #mpd.paused {
   background-color: #f78c6c;
+}
+
+#power {
+  background-color: #f53c3c;
 }
