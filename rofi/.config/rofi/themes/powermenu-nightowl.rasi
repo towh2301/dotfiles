@@ -20,47 +20,49 @@ configuration {
 window {
     border: 1px;
     border-color: @orange; 
-    background-color: @background;
+    background-color: rgba(1, 22, 39, 0.85);  // Adjusted for real transparency
     border-radius: 10px;
-    padding: 10px;
-    width: 20%;
+    padding: 24px 5px 5px 5px;
+    width: 16%;
     height: 22%;
-    transparency: "real";
 }
 
 mainbox {
-    border:  0;
+    border: 0;
     padding: 0;
-    background-color:               #00000000;
-    border-radius:                  0% 0% 0% 0%;
-    children:                       [ inputbar, listview ];
-    spacing:                        1%;
-    padding:                        1% 1% 1% 1%;
+    background-color: transparent;
+    border-radius: 0px;
+    children: [ inputbar, listview ];
+    spacing: 8px;
+    padding: 10px;
 }
 
-prompt{
+prompt {
     enabled: true;
     background-color: @pywal-color;
     text-color: @black-foreground;
-    padding: 0.25% 0.75% 0.25% 0.75%;
-    border-radius: 5%;
+    padding: 4px 10px;
+    border-radius: 5px;
     font: "FiraCode Nerd Font 14";
     spacing: 5px;
 }
 
 inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-    enabled: false;
+    children: [ prompt, textbox-prompt-colon, entry, case-indicator ];
+    enabled: false;  // Fixed visibility issue
+    background-color: transparent;
+    spacing: 6px;
 }
 
 listview {
     background-color: @background;
-    spacing: 4px;
+    spacing: 6px;
+    padding: 6px;
 }
 
 element {
     background-color: transparent;
-    padding: 6px;
+    padding: 12px 8px 8px 6px;
     border-radius: 6px;
 }
 
@@ -72,7 +74,8 @@ element selected {
 
 element-icon {
     background-color: transparent;
-    size: 20px;
+    size: 24px;
+    margin-right: 8px;
 }
 
 element-text {

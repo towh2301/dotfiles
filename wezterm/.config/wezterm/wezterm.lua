@@ -148,5 +148,12 @@ return {
 			-- Scroll up
 			action = wezterm.action({ ScrollByLine = -1 }),
 		},
+
+		-- close tab
+		{
+			key = "w",
+			mods = "CTRL",
+			action = wezterm.action({ CloseCurrentTab = { confirm = true } }),
+		},
 	},
 }
