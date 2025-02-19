@@ -18,6 +18,7 @@
     "temperature",
     "backlight",
     "sway/language",
+    "custom/input",
     "battery",
     "clock",
     "tray",
@@ -58,6 +59,17 @@
     "format-icons": ["", ""],
     "tooltip": true,
     "tooltip-format": "{app}: {title}",
+  },
+  "custom/input": {
+    "format": "{icon} {name}",
+    "format-icons": {
+      "us": "", // Default icon for US layout
+      "vi": "", // Default icon for Vietnamese layout
+    },
+    "exec": "echo '{\"icon\": \"\", \"name\": \"US\"}'", // Default output
+    "exec-if": "true", // Always run
+    "return-type": "json",
+    "interval": 1,
   },
   "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
