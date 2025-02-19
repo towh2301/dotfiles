@@ -25,13 +25,14 @@ keymap.set("i", "jk", "<ESC>", opts)
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", opts)
 
--- delete single character without copying into register
-keymap.set("n", "x", '"_x')
+-- After using ctrl + space in insert_mode, using j to move down and k to move up
+
+-- <C-n> to move down and <C-p> to move up in triggered completion menu
 
 -- inline options
-keymap.set("n", "<S-e>", "<S-w>$", opts) -- move cursor to end of line
+keymap.set("n", "<S-e>", "<S-$>", opts) -- move cursor to end of line
 keymap.set("n", "<S-f>", "0", opts) -- move cursor to begin of line
-keymap.set("v", "<S-e>", "<S-w>$", opts) -- move cursor to end of line - VISUAL MODE
+keymap.set("v", "<S-e>", "<S-$>", opts) -- move cursor to end of line - VISUAL MODE
 keymap.set("v", "<S-f>", "0", opts) -- move cursor to begin of line - VISUAL MODE
 
 -- window management

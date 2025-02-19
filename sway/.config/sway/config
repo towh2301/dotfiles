@@ -31,11 +31,12 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg $HOME/Pictures/wallpaper/fuji.jpg fill
+output * bg $HOME/Pictures/wallpaper/window.jpg fill
 #
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 0 0
+output HDMI-A-2 resolution 1366x768 position 1920 0 adaptive_sync enable scale 0.9
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 # output eDP-1 scale 1
@@ -64,7 +65,7 @@ for_window [class=".*"] border pixel 1
 client.focused #ecc48d #ecc48d #ecc48d #ecc48d
 client.unfocused #3b4252 #3b4252 #3b4252 #3b4252
 
-### Gaps configuration
+for_window [class=".*"] border pixel 1
 gaps inner 8
 
 
@@ -79,10 +80,20 @@ input "type:touchpad" {
     middle_emulation enabled
 }
 
+# export GTK_IM_MODULE=ibus
+# export QT_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+exec fcitx5 -d
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
+### grimshot --screenshot manager
+    bindsym $mod+Shift+s exec grimshot --notify copy area
+
+### CopyQ -- clipboard manager
+    bindsym Ctrl+Alt+v exec copyq show
 #
 # Basics:
 #
