@@ -11,6 +11,21 @@ return {
 			})
 		end,
 	},
+	-- lua/plugins/rose-pine.lua
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				styles = {
+					transparency = true,
+					italic = false,
+					bold = false,
+				},
+			})
+		end,
+	},
+	{ "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	lazy = true,

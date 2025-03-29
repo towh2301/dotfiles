@@ -31,15 +31,21 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg $HOME/Pictures/wallpaper/window.jpg fill
+output * bg $HOME/Pictures/wallpaper/house1.jpg fill
 #
 # Example configuration:
 #
 output eDP-1 resolution 1920x1080 position 0 0
-output HDMI-A-2 resolution 1366x768 position 1920 0 adaptive_sync enable scale 0.9
+output HDMI-A-2 resolution 1366x768 position 1920 0 adaptive_sync enable scale 0.76
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 # output eDP-1 scale 1
+
+# Notification Daemon
+exec swaync
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 ### Idle configuration
 #

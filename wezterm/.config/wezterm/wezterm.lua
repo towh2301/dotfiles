@@ -3,7 +3,7 @@
 -- +----------------------------+
 
 local wezterm = require("wezterm")
-local pad = 10
+local pad = 6
 local line_height = 1.2
 
 local font_normal = {
@@ -18,7 +18,7 @@ local font_italic = {
 	italic = true,
 }
 
-function load_font(font)
+local function load_font(font)
 	return wezterm.font(font.family, {
 		weight = font.weight,
 		italic = font.italic,
@@ -46,7 +46,7 @@ return {
 
 	-- Fonts
 	font = load_font(font_normal),
-	font_size = 12,
+	font_size = 13,
 	font_rules = {
 		{
 			italic = true,
