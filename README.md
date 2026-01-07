@@ -1,9 +1,3 @@
-This is a solid README, but we can make it more professional and user-friendly by adding a "Prerequisites" section, improving the visual hierarchy, and clarifying the `stow` command (which often requires a target flag if not run from the home directory).
-
-Here is a refined version tailored for **towh2301**:
-
----
-
 # 🛠️ dotfiles
 
 A collection of my personal configuration files and scripts designed to streamline my development workflow. This setup focuses on efficiency, featuring optimized configurations for **Zsh, Vim, Bash,** and more.
