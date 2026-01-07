@@ -33,24 +33,6 @@ sudo dnf upgrade -y
 
 sudo dnf install openssl nautilus git curl wget neovim -y
 
-log "Installing Nerd Fonts"
-NERD_FONTS_DIR="$HOME/.local/share/fonts"
-mkdir -p "$NERD_FONTS_DIR"
-
-if ! fc-list | grep -q "Hack Nerd Font"; then
-  log "Installing Hack Nerd Font"
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh)" Hack
-else
-  skip "Hack Nerd Font already installed"
-fi
-
-if ! fc-list | grep -q "FiraCode Nerd Font"; then
- log "Installing FiraCode Nerd Font"
- bash -c "$(curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh)" FiraCode
-else
- skip "FiraCode Nerd Font already installed"
-fi
-
 fc-cache -f -v
 
 # Install Kitty terminal emulator
@@ -59,15 +41,6 @@ if ! command -v kitty >/dev/null; then
   sudo dnf install -y kitty
 else
   skip "Kitty already installed"
-fi
-
-# Install Ghostty terminal multiplexer
-if ! command -v ghostty >/dev/null; then
-  log "Installing Ghostty (via COPR)"
-  sudo dnf copr enable quintiliano/ghostty -y
-  sudo dnf install -y ghostty
-else
-  skip "Ghostty already installed"
 fi
 
 # ------------------------------------------------------------------------------
