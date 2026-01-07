@@ -16,7 +16,6 @@ wallpaper=$(basename $config_line)
 # Print the wallpaper filename and extension
 echo $wallpaper
 
-
 # Print the wallpaper filename and extension
 echo "Current wallpaper : $wallpaper"
 # Get the path of the current background from the sway config file
@@ -26,16 +25,16 @@ echo "Current background: $CURRENT_BACKGROUND"
 # Find the index of the current background in the list
 CURRENT_INDEX=0
 for i in "${!BACKGROUND_LIST[@]}"; do
-    echo "Comparing ${BACKGROUND_LIST[$i]} with $CURRENT_BACKGROUND"
-    if [[ "${BACKGROUND_LIST[$i]}" == "${CURRENT_BACKGROUND}" ]]; then
-        CURRENT_INDEX=$i
-        echo "Current index: $CURRENT_INDEX"
-        break
-    fi
+  echo "Comparing ${BACKGROUND_LIST[$i]} with $CURRENT_BACKGROUND"
+  if [[ "${BACKGROUND_LIST[$i]}" == "${CURRENT_BACKGROUND}" ]]; then
+    CURRENT_INDEX=$i
+    echo "Current index: $CURRENT_INDEX"
+    break
+  fi
 done
 
 # Calculate the index of the next background
-NEXT_INDEX=$(( (CURRENT_INDEX + 1) % ${#BACKGROUND_LIST[@]} ))
+NEXT_INDEX=$(((CURRENT_INDEX + 1) % ${#BACKGROUND_LIST[@]}))
 echo "Next index: $NEXT_INDEX"
 
 # Get the path of the next background
@@ -54,4 +53,3 @@ sed -i "s|^swaybg --output '.*' --mode fill --image .*|swaybg --output '*' --mod
 
 # Send a notification with the new background name with an icon from the current background
 notify-send -i $NEXT_BACKGROUND "Background changed" "$(basename $NEXT_BACKGROUND)"
-
