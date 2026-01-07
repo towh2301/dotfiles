@@ -1,0 +1,9 @@
+{
+  "config": {
+    // Disable the line-length rule (MD013)
+    "MD013": false,
+
+    // You can also keep other default rules enabled
+    "default": true,
+  },
+}
