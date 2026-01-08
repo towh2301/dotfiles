@@ -145,7 +145,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
@@ -193,7 +193,7 @@ pathprepend "$HOME/bin" "$HOME/sbin" "$HOME/.local/bin" "$HOME/local/bin" "$HOME
 pathappend "$HOME/.cargo/bin"
 
 # Add Tmuxifier to path
-pathappend "$HOME/.config/tmux/plugins/tmuxifier/bin"
+# pathappend "$HOME/.config/tmux/plugins/tmuxifier/bin"
 
 #######################################################
 # Aliases
@@ -360,10 +360,10 @@ source ~/.config/zsh/zsh-syntax-highlightin-tokyonight.zsh
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-Zoxide config for zsh plugins 
-eval "$(zoxide init --cmd cd zsh)"
+# Zoxide config for zsh plugins 
+# eval "$(zoxide init --cmd cd zsh)"
 
 
-Tmuxifier config for zsh plugins  
-eval "$(tmuxifier init -)"
+# Tmuxifier config for zsh plugins  
+# eval "$(tmuxifier init -)"
 
