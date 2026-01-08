@@ -8,7 +8,7 @@
 ########################################
 
 # set background
-output * bg /home/kai/.config/backgrounds/018.jpg fill
+output * bg /home/kai/.config/backgrounds/010.jpg fill
 
 # include custom sway config
 include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf"
