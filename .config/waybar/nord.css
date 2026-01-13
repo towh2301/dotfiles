@@ -1,0 +1,19 @@
+/* Nord color scheme */
+@define-color nord0  #2e3440;  /* darkest background */
+@define-color nord1  #3b4252;  /* slightly lighter bg */
+@define-color nord2  #434c5e;
+@define-color nord3  #4c566a;
+@define-color nord4  #d8dee9;  /* light text */
+@define-color nord5  #e5e9f0;
+@define-color nord6  #eceff4;  /* brightest white-ish */
+
+@define-color nord7  #8fbcbb;  /* cyan */
+@define-color nord8  #88c0d0;  /* light cyan */
+@define-color nord9  #81a1c1;  /* blue */
+@define-color nord10 #5e81ac; /* deep blue */
+
+@define-color nord11 #bf616a; /* red */
+@define-color nord12 #d08770; /* orange */
+@define-color nord13 #ebcb8b; /* yellow */
+@define-color nord14 #a3be8c; /* green */
+@define-color nord15 #b48ead; /* purple */

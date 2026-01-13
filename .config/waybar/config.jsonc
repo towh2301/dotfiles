@@ -1,0 +1,84 @@
+{
+  "position": "top",
+  "height": 32,
+  "margin": "",
+  "spacing": 4,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "battery"],
+
+  // Workspaces (recommended to always show them)
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "persistent-workspaces": {
+      "*": 5
+    },
+    "all-outputs": true
+  },
+
+  // Window title
+  "hyprland/window": {
+    "format": "{title:.80}",
+    "separate-outputs": true
+  },
+
+  // ── Clock ── (your exact icon + format, Nord cyan)
+  "clock": {
+    "format": "{:%a, %d/%m  %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%A, %d %B %Y  %H:%M}",
+
+    // ── This enables the bigger 12-month calendar ────────────────────────
+    "calendar": {
+        "mode": "year",              // ← Switch to full year view
+        "mode-mon-col": 4,           // 4 months per row (good balance: 3 rows of 4)
+        "weeks-pos": "right",        // Optional: show week numbers on the right
+        "on-scroll": 1,              // Scroll to change year
+        "on-click-right": "mode",    // Right-click toggles year ↔ month view
+        "format": {
+            "months":     "<b>{}</b>",                     // Bold month names
+            "weekdays":   "<span color='#88c0d0'>{}</span>", // Cyan weekdays
+            "days":       "{}",                            // Normal days
+            "today":      "<span color='#ebcb8b'><b><u>{}</u></b></span>"  // Yellow + underline for today
+        }
+    }
+  },
+
+  // ── Battery ── (your exact icons + layout, Nord green → yellow → red)
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#a3be8c'>{icon} </span>{capacity}%",
+    "format-warning": "<span size='13000' foreground='#ebcb8b'>{icon} </span>{capacity}%",
+    "format-critical": "<span size='13000' foreground='#bf616a'>{icon} </span>{capacity}%",
+    "format-charging": "<span size='13000' foreground='#a3be8c'> </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#a3be8c'> </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#a3be8c'>{icon} </span>{time}",
+    "format-full": "<span size='13000' foreground='#a3be8c'> </span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{timeTo}"
+  },
+
+  // ── Network ── (your exact icons + layout, Nord cyan + orange warning)
+  "network": {
+    "format-wifi": "<span size='13000' foreground='#88c0d0'>  </span>{essid}",
+    "format-ethernet": "<span size='13000' foreground='#88c0d0'>󰤭  </span>Connected",
+    "format-linked": "<span size='13000' foreground='#88c0d0'>󰤭  </span>{ifname} (No IP)",
+    "format-disconnected": "<span size='13000' foreground='#d08770'>  </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
+  },
+
+  // ── PulseAudio ── (your exact icons + layout, Nord cyan)
+  "pulseaudio": {
+    "format": "<span foreground='#81a1c1'>{icon}</span> {volume}%",
+    "format-muted": "<span foreground='#4c566a'>  </span> Muted",
+    "format-icons": {
+      "default": ["", "", " "]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  }
+}

@@ -1,249 +1,187 @@
-@keyframes blink-warning {
-  70% {
-    color: @light;
-  }
-  to {
-    color: @light;
-    background-color: @warning;
-  }
-}
+/* ==============================================
+   Nord Theme for Waybar - Full Style (2026)
+   ============================================== */
 
-@keyframes blink-critical {
-  70% {
-    color: @light;
-  }
-  to {
-    color: @light;
-    background-color: @critical;
-  }
-}
+@import "nord.css";  /* Make sure this file contains the Nord palette definitions */
 
-/* -----------------------------------------------------------------------------
- * Nord Color Palette
- * -------------------------------------------------------------------------- */
-@define-color bg                #2E3440;
-@define-color light             #D8DEE9;
-@define-color warning           #EBCB8B;
-@define-color critical          #BF616A;
-@define-color mode              #434C5E;
-@define-color workspacesfocused #4C566A;
-
-@define-color sound             #EBCB8B;
-@define-color network           #5D7096;
-@define-color memory            #546484;
-@define-color cpu               #596A8D;
-@define-color temp              #4D5C78;
-@define-color layout            #5E81AC;
-@define-color battery           #88C0D0;
-@define-color date              #434C5E;
-@define-color time              #434C5E;
-@define-color backlight         #434C5E;
-@define-color nord_bg           #434C5E;
-@define-color nord_bg_blue      #546484;
-@define-color nord_dark_font    #434C5E;
-
-/* -----------------------------------------------------------------------------
- * Global Styles
- * -------------------------------------------------------------------------- */
 * {
-  border: none;
-  border-radius: 6px;
-  min-height: 0;
-  margin: 0.3em 0.4em 0.3em 0.4em;
-  padding: 0 0.6em;
-  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free Solid";
-  font-size: 13px;
-  font-weight: bold;
+    font-family: "MesloLGS Nerd Font Mono Bold";
+    font-size: 14px;
+    min-height: 0;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
-#waybar {
-  background: @bg;
-  color: @light;
-  border-radius: 0px;
+window#waybar {
+    background: transparent;
+    background-color: @nord0;
+    color: @nord4;
+    transition-property: background-color;
+    transition-duration: 0.15s;
+    border-bottom: 1px solid @nord3;
 }
 
-/* -----------------------------------------------------------------------------
- * Module Groups
- * -------------------------------------------------------------------------- */
-#clock,
-#language,
-#custom-scratchpad-indicator,
-#custom-pacman,
-#mode,
-#idle_inhibitor,
-#custom-media,
-#custom-cpugovernor,
-#cpu,
-#temperature,
-#custom-gpu,
+/* Window title */
+#window {
+    margin: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: @nord6;
+}
+
+/* General button styling */
+button {
+    box-shadow: inset 0 -3px transparent;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: @nord8;
+    border-top: 2px solid @nord8;
+}
+
+/* ── Workspaces ──────────────────────────────────────── */
+#workspaces {
+    margin: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    min-width: 28px;
+    color: @nord4;
+    background: transparent;
+}
+
+/* Empty / inactive persistent workspaces */
+#workspaces button.empty,
+#workspaces button.persistent:not(.occupied):not(.active) {
+    color: @nord3;
+    opacity: 0.75;
+    font-weight: normal;
+}
+
+/* Occupied but not focused */
+#workspaces button.occupied:not(.active) {
+    color: @nord5;
+    opacity: 0.92;
+}
+
+/* Active / focused workspace */
+#workspaces button.active,
+#workspaces button.focused {
+    color: @nord6;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-top: 2px solid @nord8;
+}
+
+/* Urgent workspace */
+#workspaces button.urgent {
+    background-color: @nord11;
+    color: @nord6;
+    animation: blink 1.2s infinite;
+}
+
+/* Hover on any workspace button */
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.18);
+    color: @nord8;
+}
+
+/* ── Module spacing & padding ────────────────────────── */
 #pulseaudio,
-#bluetooth,
-#network,
-#custom-power,
-#tray {
-  padding: 0 0.7em;
-}
-
-/* Blinking for warning/critical states */
-#mode,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
 #temperature,
-#battery {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#backlight,
+#wireplumber,
+#tray,
+#network,
+#mode,
+#scratchpad,
+#custom-* {
+    margin: 2px 4px;
+    padding: 0 6px;
 }
-
-#temperature.critical,
-#battery.critical.discharging {
-  animation-name: blink-critical;
-  animation-duration: 2s;
-}
-
-#battery.warning.discharging {
-  animation-name: blink-warning;
-  animation-duration: 3s;
-}
-
-/* -----------------------------------------------------------------------------
- * Individual Modules
- * -------------------------------------------------------------------------- */
 
 /* Clock */
 #clock {
-  background: @nord_bg_blue;
-  color: @light;
+    color: @nord12;
+    border-bottom: 2px solid @nord12;
 }
 
-/* Language */
-#language {
-  background: @nord_bg_blue;
-  color: @light;
-  padding: 0 0.5em;
+#clock.date {
+    color: @nord15;
+    border-bottom: 2px solid @nord15;
 }
 
-/* Scratchpad Indicator */
-#custom-scratchpad-indicator {
-  background: @nord_bg;
-  color: @light;
-}
-
-/* Pacman Updates (assuming it shows a number) */
-#custom-pacman {
-  background: @nord_bg;
-  color: @light;
-}
-
-/* Mode (resize, etc.) */
-#mode {
-  background: @mode;
-  color: @light;
-  font-style: italic;
-}
-
-/* Idle Inhibitor (caffeine) */
-#idle_inhibitor {
-  background: @mode;
-  color: @light;
-  font-size: 14px;
-  padding: 0 1em 0 0.6em;
-}
-
-/* Media Player */
-#custom-media {
-  background: @nord_bg;
-  color: @light;
-  font-weight: normal;
-}
-
-/* CPU Governor */
-#custom-cpugovernor {
-  background: @nord_bg;
-  color: @light;
-  padding: 0 0.5em;
-}
-
-/* CPU */
-#cpu {
-  background: @cpu;
-  color: @light;
-}
-
-/* Temperature */
-#temperature {
-  background: @temp;
-  color: @light;
-}
-
-#temperature.critical {
-  background: @critical;
-  color: @light;
-}
-
-/* GPU */
-#custom-gpu {
-  background: @nord_bg_blue;
-  color: @light;
-}
-
-/* Pulseaudio */
+/* PulseAudio / Volume */
 #pulseaudio {
-  background: @sound;
-  color: @nord_dark_font;
-}
-
-#pulseaudio.muted {
-  background: @critical;
-  color: @light;
-}
-
-/* Bluetooth */
-#bluetooth {
-  background: @nord_bg_blue;
-  color: @light;
+    color: @nord8;
+    border-bottom: 2px solid @nord8;
 }
 
 /* Network */
 #network {
-  background: @network;
-  color: @light;
+    color: @nord13;
+    border-bottom: 2px solid @nord13;
 }
 
-#network.disconnected {
-  background: @warning;
-  color: @nord_dark_font;
+/* Idle Inhibitor */
+#idle_inhibitor {
+    margin-right: 12px;
+    color: @nord14;
 }
 
-/* Power Menu */
-#custom-power {
-  background: @mode;
-  color: @light;
-  padding: 0 0.8em;
-  font-size: 14px;
+#idle_inhibitor.activated {
+    color: @nord11;
 }
 
-/* Tray */
-#tray {
-  background: @nord_bg;
-  padding: 0 0.6em;
+/* Battery */
+#battery {
+    color: @nord14;
+    border-bottom: 2px solid @nord14;
 }
 
-/* Workspaces */
-#workspaces button {
-  padding: 0 0.4em;
-  color: @light;
-  opacity: 0.5;
-  background: transparent;
-  border-radius: 6px;
+#battery.warning {
+    color: @nord13;
+    border-bottom: 2px solid @nord13;
 }
 
-#workspaces button.focused {
-  background: @workspacesfocused;
-  color: @light;
-  opacity: 1;
-  box-shadow: none;
+#battery.critical {
+    color: @nord11;
+    border-bottom: 2px solid @nord11;
+    animation: blink 0.8s infinite;
 }
 
-#workspaces button.urgent {
-  background: @critical;
-  color: @light;
+/* Custom VPN module */
+#custom-vpn {
+    color: @nord7;
+    background: rgba(143, 188, 187, 0.12);
+    border-radius: 15px;
+    padding: 0 8px;
+    margin: 2px 6px;
+}
+
+/* Remove side margins when workspaces are at edges */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* Blink animation for urgent/critical states */
+@keyframes blink {
+    to {
+        opacity: 0.45;
+    }
 }
